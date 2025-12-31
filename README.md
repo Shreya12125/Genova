@@ -1,152 +1,261 @@
-# MIDCOURSE
-### Market-Aware Agentic AI System for Adaptive Career Decision-Making
+# AI Job Matching System
 
----
+A comprehensive job matching system that analyzes resumes, matches them with jobs in a PostgreSQL database, and provides personalized career insights.
 
-## Overview
+## Features
 
-MIDCOURSE is an Agentic AI–powered career intelligence system that helps students and early professionals understand **why job applications fail** and **what to do next**.
+- **Resume Analysis**: Upload PDF resumes and automatically extract skills
+- **Job Matching**: Match candidate skills with 100+ jobs from 50 companies across 4 categories
+- **Skill Gap Analysis**: Identify missing skills for each job opportunity
+- **Interactive Frontend**: Beautiful HTML/CSS interface with real-time job matching
+- **Personality Assessment**: Get personalized career strategies based on personality
+- **Career Roadmap**: Receive customized learning paths
 
-Unlike traditional platforms that only provide match scores or static advice, MIDCOURSE reasons over rejections, analyzes real job market requirements, plans corrective actions, and continuously adapts career strategy using feedback.
+## Tech Stack
 
----
+- **Backend**: Python Flask
+- **Database**: PostgreSQL
+- **PDF Parsing**: PyPDF2
+- **Frontend**: HTML, CSS, JavaScript
+- **API**: RESTful API with CORS support
 
-## Problem Statement
+## Database Structure
 
-Students repeatedly apply for jobs and internships but receive rejections without clear explanations.
+The system includes:
+- **50 Companies** across 4 industries:
+  - Engineering (13 companies)
+  - Information Technology (13 companies)
+  - Human Resources (12 companies)
+  - Education/Teaching (12 companies)
 
-Existing systems:
-- Show only resume match scores
-- List job opportunities without guidance
-- Provide generic chatbot advice
-- Recommend courses without context
-- Do not learn from failures
+- **100+ Jobs** with realistic requirements
+- **70+ Skills** categorized by industry
+- Complete job-skills mapping
 
-As a result, users are left confused after every rejection.
+## Setup Instructions
 
----
+### 1. Install PostgreSQL
 
-## Solution
+Make sure PostgreSQL is installed and running on your system.
 
-MIDCOURSE acts as a **career co-pilot** that:
-- Explains why a rejection happened
-- Identifies exact skill and role gaps
-- Prioritizes skills based on market demand
-- Plans the next best career action autonomously
-- Converts skill gaps into portfolio-ready projects
-- Improves recommendations using feedback
+**Windows**: Download from https://www.postgresql.org/download/windows/
 
----
+**Default credentials**:
+- Username: `postgres`
+- Password: `postgres` (change in `app.py` if different)
+- Port: `5432`
 
-## Why Agentic AI
+### 2. Create Database
 
-MIDCOURSE follows a true Agentic AI loop:
+Open PostgreSQL command line (psql) or pgAdmin and run:
 
-Observe → Reason → Plan → Act → Learn
+```sql
+CREATE DATABASE job_matching;
+```
 
-The system:
-- Observes resumes, job requirements, and market data
-- Reasons about failures and skill gaps
-- Plans corrective career actions
-- Acts by generating projects and roadmaps
-- Learns from outcomes to improve future decisions
+### 3. Set up Database Schema and Data
 
-This makes MIDCOURSE an adaptive decision-making agent, not a static recommender.
+Navigate to the project directory and run the SQL files in order:
 
----
+```bash
+# Using psql command line
+psql -U postgres -d job_matching -f database_setup.sql
+psql -U postgres -d job_matching -f jobs_data.sql
+psql -U postgres -d job_matching -f job_skills_mapping.sql
+```
 
-## System Workflow
+Or using pgAdmin:
+1. Connect to the `job_matching` database
+2. Open Query Tool
+3. Run each SQL file in order
 
-1. User uploads resume and selects target role  
-2. Resume skills are extracted  
-3. Job requirements are analyzed  
-4. Resume–job match score is calculated  
-5. Rejection reasons are explained  
-6. Market skill demand is analyzed  
-7. Agent plans next best action  
-8. Skill-to-project roadmap is generated  
-9. Feedback improves future strategies  
+### 4. Install Python Dependencies
 
----
+```bash
+pip install PyPDF2 psycopg2-binary Flask flask-cors
+```
 
-## Database Design
+### 5. Update Database Configuration (if needed)
 
-**Database Name:** `job_matching`
+Edit `app.py` and update the database credentials:
 
-### Core Tables
-- `companies` – company and industry details  
-- `jobs` – job roles linked to companies  
-- `skills` – centralized skill repository  
-- `job_skills` – job-to-skill requirement mapping  
-- `users` – applicant and company roles  
+```python
+DB_CONFIG = {
+    'dbname': 'job_matching',
+    'user': 'postgres',
+    'password': 'your_password_here',  # Change this
+    'host': 'localhost',
+    'port': '5432'
+}
+```
 
-This structured database represents the real job market environment that the agent reasons over.
+### 6. Start the Flask Backend
 
----
+```bash
+python app.py
+```
 
-## Data Source Strategy
+The API will run on `http://localhost:5000`
 
-- Job requirements are collected from publicly available job postings
-- Scraping is performed offline for stability and ethics
-- No synthetic job descriptions are generated
-- User resumes are uploaded and parsed locally
+### 7. Open the Frontend
 
----
+Simply open `index.html` in your web browser. The application will automatically connect to the Flask backend.
 
-## Technologies Used
+**Alternative**: Use a local server:
+```bash
+# Using Python
+python -m http.server 8000
 
-### AI & Reasoning
-- Large Language Models (LLMs)
-- Rule-based reasoning logic
-- Agentic decision loop
+# Then visit http://localhost:8000
+```
 
-### Backend
-- Python
-- FastAPI
-- PostgreSQL
-- psycopg2
+## Usage
 
-### Data Processing
-- pdfplumber / PyPDF2
-- BeautifulSoup
-- Regex-based skill extraction
+### 1. Upload Resume
+- Click "Get Started" or "Demo"
+- Upload a PDF resume
+- The system will analyze it and extract skills
 
-### Frontend / Demo
-- Streamlit or React
-- Postman (API testing)
+### 2. Take Personality Test
+- Answer 8 quick questions
+- Get personalized learning and application strategies
 
----
+### 3. View Results
+- See extracted skills from your resume
+- View top matching jobs with match percentages
+- Identify missing skills for each position
+- Get personalized career roadmap
 
-## Key Innovations
+## API Endpoints
 
-- Failure-first career reasoning
-- Market-aware skill prioritization
-- Personality-aware strategy planning
-- Skill-to-project execution instead of generic advice
-- Continuous learning from outcomes
+### `POST /upload-resume`
+Upload a resume and get matching jobs
 
----
+**Request**: 
+- Form data with `resume` file (PDF)
 
-## Hackathon Alignment
+**Response**:
+```json
+{
+  "message": "Resume analyzed successfully",
+  "candidate_skills": ["Python", "SQL", "..."],
+  "total_skills_found": 10,
+  "matching_jobs": [
+    {
+      "job_id": 1,
+      "job_title": "Data Engineer",
+      "company_name": "DataStream Technologies",
+      "match_percentage": 75.5,
+      "matched_skills": ["Python", "SQL"],
+      "missing_skills": ["Docker", "AWS"],
+      "salary_range": "$90,000 - $120,000",
+      "location": "San Jose, CA"
+    }
+  ],
+  "total_matches": 15
+}
+```
 
-- Strong Agentic AI architecture
-- Autonomous decision-making
-- Explainable reasoning
-- Real-world student impact
-- Modular and scalable design
+### `GET /jobs`
+Get all jobs in database
 
----
+### `GET /skills`
+Get all skills in database
+
+### `GET /health`
+Health check endpoint
+
+## Resume Dataset
+
+The system analyzes resumes from the dataset located at:
+```
+C:\Users\Admin\Downloads\Ai verse\archive\data\data
+```
+
+Categories:
+- `ENGINEERING/` - 450+ engineering resumes
+- `HR/` - HR professional resumes
+- `INFORMATION-TECHNOLOGY/` - IT resumes
+- `TEACHER/` - Education resumes
+
+## Skill Detection
+
+The system uses keyword matching to detect skills from resumes. It recognizes:
+
+- **Engineering**: AutoCAD, SolidWorks, MATLAB, CAD, Mechanical Design, etc.
+- **IT**: Python, Java, JavaScript, React, AWS, Docker, Kubernetes, etc.
+- **HR**: Recruitment, HRIS, Payroll, Performance Management, etc.
+- **Teaching**: Curriculum Development, Classroom Management, ESL, etc.
+- **General**: Communication, Leadership, Problem Solving, etc.
+
+## Database Queries
+
+### View all companies:
+```sql
+SELECT * FROM companies ORDER BY industry, company_name;
+```
+
+### View all jobs:
+```sql
+SELECT j.job_title, c.company_name, j.job_category, j.salary_range
+FROM jobs j
+JOIN companies c ON j.company_id = c.company_id
+ORDER BY c.company_name;
+```
+
+### View job skills:
+```sql
+SELECT j.job_title, s.skill_name, js.importance_level
+FROM jobs j
+JOIN job_skills js ON j.job_id = js.job_id
+JOIN skills s ON js.skill_id = s.skill_id
+WHERE j.job_id = 1;
+```
+
+### Find jobs by skill:
+```sql
+SELECT DISTINCT j.job_title, c.company_name
+FROM jobs j
+JOIN companies c ON j.company_id = c.company_id
+JOIN job_skills js ON j.job_id = js.job_id
+JOIN skills s ON js.skill_id = s.skill_id
+WHERE s.skill_name = 'Python';
+```
+
+## Troubleshooting
+
+### Database Connection Error
+- Ensure PostgreSQL is running
+- Check credentials in `app.py`
+- Verify database `job_matching` exists
+
+### No Jobs Returned
+- Check if SQL files were executed successfully
+- Verify data in tables: `SELECT COUNT(*) FROM jobs;`
+- Ensure Flask server is running
+
+### CORS Error
+- Make sure Flask app is running with CORS enabled
+- Check browser console for errors
+
+### PDF Parsing Error
+- Ensure PDF is not password protected
+- Try with a simpler PDF resume
+- Check PDF is valid and not corrupted
 
 ## Future Enhancements
 
-- Live job market scraping with schedulers
-- Resume version tracking
-- Interview feedback integration
-- Multi-agent collaboration
-- Cloud deployment
+- Machine learning-based skill extraction
+- Resume scoring and optimization suggestions
+- Interview preparation resources
+- Company reviews and culture fit analysis
+- Salary negotiation insights
+- Application tracking system
 
----
+## License
 
-## One-Line Pitch
+This project is for educational purposes.
 
-MIDCOURSE is a market-aware Agentic AI system that learns from resume rejections, explains why they happen, and autonomously adapts career strategy until the user becomes job-ready.
+## Contributors
+
+Built with AI assistance using real job market data and industry-standard technologies.

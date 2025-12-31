@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Career Co-Pilot - Analyze resumes, match jobs, and get personalized career strategies powered by AI">
+  <title>AI Career Co-Pilot | Market-Aware Agentic AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo" onclick="showPage('landing')">
+        <span class="logo-icon">🚀</span>
+        <span>CareerPilot<span class="logo-ai">AI</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#" onclick="showPage('upload')">Demo</a></li>
+        <li><a href="#" onclick="showPage('auth')">Login / Sign Up</a></li>
+      </ul>
+      <button class="cta-btn nav-cta" onclick="showPage('upload')">Get Started</button>
+    </div>
+  </nav>
+
+  <!-- Page 1: Landing -->
+  <div id="page-landing" class="page active">
+    <header class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <span class="hero-badge">✨ AI-Powered Career Intelligence</span>
+        <h1>Your Personal <span class="gradient-text">AI Career</span> Co-Pilot</h1>
+        <p class="hero-subtitle">Analyze your resume, understand job rejections, and get a personalized career roadmap — all powered by intelligent agents.</p>
+        <div class="hero-actions">
+          <button class="cta-btn primary" onclick="showPage('upload')">Upload Resume</button>
+          <button class="cta-btn secondary">Watch Demo</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-value">95%</span>
+            <span class="stat-label">Match Accuracy</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">10K+</span>
+            <span class="stat-label">Careers Analyzed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">24/7</span>
+            <span class="stat-label">AI Assistance</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="features" class="features">
+      <div class="container">
+        <span class="section-badge">Core Features</span>
+        <h2>Everything You Need to <span class="gradient-text">Land Your Dream Job</span></h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📄</div>
+            <h3>Resume Analysis</h3>
+            <p>Upload your PDF resume and our AI extracts skills, projects, and experience keywords automatically.</p>
+          </div>
+          <div class="feature-card featured">
+            <div class="feature-icon">🎯</div>
+            <h3>Job Matching Engine</h3>
+            <p>Get instant match scores with job descriptions and see exactly which skills you're missing.</p>
+            <span class="feature-tag">Most Popular</span>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Personality Strategy</h3>
+            <p>Take a quick Big 5 assessment to get personalized learning and application strategies.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Market Analysis</h3>
+            <p>See high-demand skills in your industry and how your profile aligns with market trends.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💡</div>
+            <h3>Project Generator</h3>
+            <p>Get personalized project ideas to build missing skills with ready-to-use tech stacks.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🗺️</div>
+            <h3>Career Roadmap</h3>
+            <p>Receive a week-by-week action plan: Learn, Build, Apply — powered by agentic AI.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+      <div class="container">
+        <span class="section-badge">Process</span>
+        <h2>How It <span class="gradient-text">Works</span></h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <h3>Upload Resume</h3>
+            <p>Drop your PDF resume and let AI extract your profile</p>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step">
+            <div class="step-number">02</div>
+            <h3>Personality Test</h3>
+            <p>Answer 8 quick questions to personalize your strategy</p>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step">
+            <div class="step-number">03</div>
+            <h3>AI Analysis</h3>
+            <p>Match against jobs and identify skill gaps</p>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step">
+            <div class="step-number">04</div>
+            <h3>Action Plan</h3>
+            <p>Follow your custom career roadmap</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <h2>Ready to Transform Your <span class="gradient-text">Career Journey?</span></h2>
+        <p>Join thousands of professionals who've accelerated their career with AI-powered insights.</p>
+        <button class="cta-btn primary large" onclick="showPage('upload')">Start Free Analysis</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Page: Auth (Login / Sign Up) -->
+  <div id="page-auth" class="page">
+    <div class="page-content">
+      <div class="auth-page">
+        <span class="section-badge">Account</span>
+        <h1>Sign in or Create an <span class="gradient-text">Account</span></h1>
+        <p class="page-subtitle">Applicants can upload resumes. Companies can post jobs.</p>
+
+        <div class="upload-card">
+          <div class="auth-toggle">
+            <button class="auth-tab active" id="authTabLogin" onclick="setAuthMode('login')">Login</button>
+            <button class="auth-tab" id="authTabSignup" onclick="setAuthMode('signup')">Sign Up</button>
+          </div>
+
+          <div class="auth-role-toggle">
+            <button class="auth-role-btn active" id="roleApplicantBtn" onclick="setAuthRole('applicant')">Applicant</button>
+            <button class="auth-role-btn" id="roleCompanyBtn" onclick="setAuthRole('company')">Company</button>
+          </div>
+
+          <form class="auth-form" onsubmit="submitAuth(event)">
+            <div class="form-group">
+              <label for="authEmail">Email</label>
+              <input type="email" id="authEmail" required />
+            </div>
+            <div class="form-group">
+              <label for="authPassword">Password</label>
+              <input type="password" id="authPassword" required />
+            </div>
+
+            <div id="companyFields" class="company-fields hidden">
+              <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input type="text" id="companyName" />
+              </div>
+              <div class="form-group">
+                <label for="companyIndustry">Industry</label>
+                <input type="text" id="companyIndustry" placeholder="e.g. Information Technology" />
+              </div>
+              <div class="form-group">
+                <label for="companyLocation">Location</label>
+                <input type="text" id="companyLocation" placeholder="City, Country" />
+              </div>
+            </div>
+
+            <button type="submit" class="cta-btn primary full-width" id="authSubmitBtn">
+              Continue
+            </button>
+            <div id="authMessage" class="form-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 2: Upload -->
+  <div id="page-upload" class="page">
+    <div class="page-content">
+      <div class="upload-page">
+        <span class="section-badge">Step 1 of 3</span>
+        <h1>Upload Your <span class="gradient-text">Resume</span></h1>
+        <p class="page-subtitle">Drop your PDF resume and let our AI analyze your profile</p>
+        
+        <div class="upload-card">
+          <div class="upload-zone" id="uploadZone">
+            <div class="upload-icon">📄</div>
+            <p>Drag & drop your resume here</p>
+            <span>or</span>
+            <button class="upload-btn" onclick="document.getElementById('fileInput').click()">Browse Files</button>
+            <input type="file" id="fileInput" accept=".pdf" hidden>
+          </div>
+          <div id="fileInfo" class="file-info hidden"></div>
+          <button class="cta-btn primary full-width" id="continueBtn" disabled onclick="showPage('personality')">
+            <span class="btn-text">Continue to Personality Test</span>
+            <span class="btn-loader hidden"></span>
+          </button>
+          <button class="cta-btn secondary full-width" id="createResumeBtn" onclick="showPage('resume-builder')">
+            Create Resume Instead
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page: Resume Builder -->
+  <div id="page-resume-builder" class="page">
+    <div class="page-content">
+      <div class="upload-page">
+        <span class="section-badge">Step 1 of 3</span>
+        <h1>Create Your <span class="gradient-text">Resume Profile</span></h1>
+        <p class="page-subtitle">Quickly enter your skills to get job matches without a PDF.</p>
+
+        <div class="upload-card">
+          <form class="auth-form" onsubmit="submitBuiltResume(event)">
+            <div class="form-group">
+              <label for="builderName">Full Name</label>
+              <input type="text" id="builderName" placeholder="Optional" />
+            </div>
+            <div class="form-group">
+              <label for="builderSummary">Summary</label>
+              <textarea id="builderSummary" rows="3" placeholder="Briefly describe your experience (optional)"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="builderSkills">Skills (comma separated)</label>
+              <textarea id="builderSkills" rows="3" placeholder="Python, SQL, Docker, Machine Learning" required></textarea>
+            </div>
+
+            <button type="submit" class="cta-btn primary full-width" id="builderSubmitBtn">
+              Analyze & Continue to Personality Test
+            </button>
+            <div id="builderMessage" class="form-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 3: Personality Test -->
+  <div id="page-personality" class="page">
+    <div class="page-content">
+      <div class="personality-page">
+        <span class="section-badge">Step 2 of 3</span>
+        <h1>🧠 Personality <span class="gradient-text">Assessment</span></h1>
+        <p class="page-subtitle">Answer these questions to personalize your career strategy</p>
+
+        <div class="progress-container">
+          <div class="progress-info">
+            <span id="questionCount">Question 1 of 8</span>
+            <span id="progressPercent">13%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <h2 id="questionText"></h2>
+          <div class="options-container" id="optionsContainer"></div>
+          
+          <div class="question-nav">
+            <button class="cta-btn secondary" id="backBtn" onclick="prevQuestion()" disabled>← Back</button>
+            <button class="cta-btn primary" id="nextBtn" onclick="nextQuestion()" disabled>Next →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page: Company Dashboard -->
+  <div id="page-company" class="page">
+    <div class="page-content">
+      <div class="company-page">
+        <span class="section-badge">Company</span>
+        <h1>Post a <span class="gradient-text">Job</span></h1>
+        <p class="page-subtitle" id="companyWelcome">Create job postings with required skills for applicants.</p>
+
+        <div class="upload-card">
+          <form class="auth-form" onsubmit="submitJob(event)">
+            <div class="form-group">
+              <label for="jobTitle">Job Title</label>
+              <input type="text" id="jobTitle" required />
+            </div>
+            <div class="form-group">
+              <label for="jobCategory">Job Category</label>
+              <input type="text" id="jobCategory" placeholder="e.g. IT, Engineering" />
+            </div>
+            <div class="form-group">
+              <label for="jobLocation">Location</label>
+              <input type="text" id="jobLocation" />
+            </div>
+            <div class="form-group">
+              <label for="jobExperience">Experience Required</label>
+              <input type="text" id="jobExperience" placeholder="e.g. 2-4 years" />
+            </div>
+            <div class="form-group">
+              <label for="jobSalary">Salary Range</label>
+              <input type="text" id="jobSalary" placeholder="$80,000 - $100,000" />
+            </div>
+            <div class="form-group">
+              <label for="jobDescription">Job Description</label>
+              <textarea id="jobDescription" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="jobSkills">Skills Required (comma separated)</label>
+              <textarea id="jobSkills" rows="2" placeholder="Python, SQL, Docker" required></textarea>
+            </div>
+
+            <button type="submit" class="cta-btn primary full-width" id="jobSubmitBtn">
+              Post Job
+            </button>
+            <div id="jobMessage" class="form-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 4: Results -->
+  <div id="page-results" class="page">
+    <div class="page-content">
+      <div class="results-page">
+        <span class="section-badge">Step 3 of 3</span>
+        <h1>Your Personalized <span class="gradient-text">Career Analysis</span></h1>
+        <p class="page-subtitle" id="resultsSubtitle">Based on your resume and personality profile</p>
+
+        <div class="results-grid">
+          <!-- Skills -->
+          <div class="result-card">
+            <h3>🎯 Skills Detected</h3>
+            <div class="skills-tags" id="skillsTags"></div>
+          </div>
+
+          <!-- Match Score -->
+          <div class="result-card">
+            <h3>📈 Job Match Score</h3>
+            <div class="match-score">
+              <div class="score-circle" id="scoreCircle">
+                <span class="score-value" id="scoreValue">0%</span>
+              </div>
+              <div class="score-details">
+                <p class="score-label">Software Engineer @ TechCorp</p>
+                <div class="missing-skills" id="missingSkills"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personality Profile -->
+          <div class="result-card">
+            <h3 id="learningTitle">🎓 Learning Style</h3>
+            <p id="learningDesc" class="result-desc"></p>
+            <div id="learningRecs" class="recommendations"></div>
+          </div>
+
+          <!-- Application Strategy -->
+          <div class="result-card">
+            <h3 id="strategyTitle">⚡ Application Strategy</h3>
+            <p id="strategyDesc" class="result-desc"></p>
+            <div class="strategy-details">
+              <div class="strategy-item">
+                <span class="strategy-label">Timing:</span>
+                <p id="strategyTiming"></p>
+              </div>
+              <div class="strategy-item">
+                <span class="strategy-label">Volume:</span>
+                <p id="strategyVolume"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Failure Reason -->
+          <div class="result-card full-width">
+            <h3>⚠️ Why You Might Get Rejected</h3>
+            <div class="reason-card" id="reasonCard"></div>
+          </div>
+
+          <!-- Roadmap -->
+          <div class="result-card full-width">
+            <h3>🗺️ Your Personalized Career Roadmap</h3>
+            <div class="roadmap" id="roadmap"></div>
+          </div>
+
+          <!-- Matching Jobs List -->
+          <div class="result-card full-width">
+            <h3>💼 Matching Jobs for Your Profile</h3>
+            <p class="result-desc">Based on your skills, here are the top job matches from our database</p>
+            <div class="jobs-list" id="jobsList"></div>
+          </div>
+        </div>
+
+        <div class="results-cta">
+          <button class="cta-btn primary" onclick="showPage('upload')">Analyze Another Resume</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Job Details Modal -->
+  <div id="jobModal" class="modal hidden">
+    <div class="modal-backdrop" onclick="closeJobModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeJobModal()">&times;</button>
+      <h2 id="modalJobTitle"></h2>
+      <p class="modal-company" id="modalCompany"></p>
+      <p class="modal-location" id="modalLocation"></p>
+
+      <div class="modal-section">
+        <h4>Job Description</h4>
+        <p id="modalDescription"></p>
+      </div>
+
+      <div class="modal-section">
+        <h4>Skills</h4>
+        <div id="modalSkills" class="job-skills-tags"></div>
+      </div>
+
+      <button class="cta-btn primary full-width" onclick="applyToJob()">Apply</button>
+      <div id="applyMessage" class="form-message"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo">🚀 CareerPilot<span class="logo-ai">AI</span></span>
+          <p>Market-Aware Agentic AI Career Co-Pilot</p>
+        </div>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#" onclick="showPage('upload')">Demo</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 CareerPilotAI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
