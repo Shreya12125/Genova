@@ -17,7 +17,7 @@ DB_CONFIG = {
     'user': 'postgres',
     'password': 'dummy',  # Change this to your PostgreSQL password
     'host': 'localhost',
-    'port': '5432'
+    'port': '1234'
 }
 
 # Comprehensive skill dictionary for matching
@@ -602,3 +602,4 @@ def health_check():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
