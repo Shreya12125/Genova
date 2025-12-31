@@ -257,5 +257,9 @@ WHERE s.skill_name = 'Python';
 This project is for educational purposes.
 
 ## Contributors
-
+Shreya Sriram
+Vikasini S 
+Neha Jacob
+Nandana Thachilath M
 Built with AI assistance using real job market data and industry-standard technologies.
+
